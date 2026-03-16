@@ -1,0 +1,19 @@
+# Build output
+build/
+managed_components/
+
+# ESP-IDF generated config (sdkconfig.defaults is the source of truth)
+sdkconfig
+sdkconfig.old
+
+# Eclipse IDE
+.project
+.cproject
+.settings/
+
+# Windows
+desktop.ini
+Thumbs.db
+
+# OS
+.DS_Store
