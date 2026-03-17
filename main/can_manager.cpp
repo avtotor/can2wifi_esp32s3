@@ -4,6 +4,10 @@
 #include "gvret_comm.h"
 #include "uart_serial.h"
 #include "sys_io_idf.h"
+#ifdef CAN_DEBUG
+#include "driver/twai.h"
+#include "esp_timer.h"
+#endif
 
 uint8_t CAN_frame_count;
 
@@ -51,6 +55,20 @@ void CANManager::displayFrame(CAN_FRAME &frame, int whichBus) {
 }
 
 void CANManager::loop() {
+#ifdef CAN_DEBUG
+    static uint32_t lastDebug = 0;
+    uint32_t nowMs = (uint32_t)(esp_timer_get_time() / 1000);
+    if (nowMs - lastDebug >= 5000) {
+        lastDebug = nowMs;
+        twai_status_info_t st;
+        if (twai_get_status_info(&st) == ESP_OK) {
+            uart_serial_printf("[CAN_DEBUG] state=%d rx_err=%lu tx_err=%lu msgs_rx=%lu missed=%lu\n",
+                (int)st.state, (unsigned long)st.rx_error_counter,
+                (unsigned long)st.tx_error_counter, (unsigned long)st.msgs_to_rx,
+                (unsigned long)st.rx_missed_count);
+        }
+    }
+#endif
     CAN_FRAME incoming;
     size_t wifiLength = wifiGVRET.numAvailableBytes();
     size_t serialLength = serialGVRET.numAvailableBytes();

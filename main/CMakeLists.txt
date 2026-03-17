@@ -12,3 +12,6 @@ idf_component_register(
         "serial_console_idf.cpp"
     INCLUDE_DIRS "."
 )
+
+# Uncomment to enable TWAI debug output (status every 5s in idf.py monitor):
+target_compile_definitions(${COMPONENT_LIB} PRIVATE CAN_DEBUG=1)

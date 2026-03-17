@@ -11,8 +11,8 @@
  * TX: ESP32 GPIO -> TJA1050 TX (direct, 3.3V is OK for 5V input)
  * RX: TJA1050 RX -> 1k/2k voltage divider -> ESP32 GPIO (5V -> 3.33V)
  */
-#define TWAI_TX_PIN   4
-#define TWAI_RX_PIN   5
+#define TWAI_TX_PIN   21
+#define TWAI_RX_PIN   20
 
 #define CAN_SPEED_500K  500000
 
