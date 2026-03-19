@@ -45,8 +45,8 @@ block-beta
     P14["OBD пин 14"]
   end
 
-  TX -->|"3.3В"| TXD
-  RXD -->|"1kΩ+2kΩ"| RX
+  TX --> TXD
+  RXD --> RX
   CANH --> P6
   CANL --> P14
 ```
