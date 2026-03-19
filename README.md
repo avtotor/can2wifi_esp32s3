@@ -31,16 +31,19 @@ flowchart LR
 block-beta
   columns 3
   block:ESP["ESP32-S3 N16R8"]:1
+    columns 1
     TX["GPIO21 TX"]
     RX["GPIO20 RX"]
   end
   block:TJA["TJA1050"]:1
+    columns 1
     TXD["TXD"]
     RXD["RXD"]
     CANH["CANH"]
     CANL["CANL"]
   end
   block:CAN["CAN-шина"]:1
+    columns 1
     P6["OBD пин 6"]
     P14["OBD пин 14"]
   end
