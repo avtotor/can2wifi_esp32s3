@@ -12,6 +12,8 @@
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 #define TELNET_PORT  23
 #define WIFI_CHANNEL 1
@@ -67,6 +69,7 @@ void wifi_manager_setup(void) {
     esp_event_loop_create_default();
     wifi_init_softap();
     SysSettings.isWifiConnected = true;
+    vTaskDelay(pdMS_TO_TICKS(100));
     uart_serial_print("\nWifi SSID: ");
     uart_serial_println(settings.SSID);
     esp_netif_ip_info_t info;
