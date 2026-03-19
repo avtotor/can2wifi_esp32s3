@@ -29,22 +29,30 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    TX["GPIO21\nTX"] -->|"3.3В прямое"| TXD["TXD"]
-    RXD["RXD\n5В"] -->|"1kΩ + 2kΩ\n→ 3.3В"| RX["GPIO20\nRX"]
-
     subgraph ESP ["ESP32-S3"]
-        TX
-        RX
+        direction TB
+        TX["GPIO21 TX"]
+        RX["GPIO20 RX"]
     end
+
     subgraph TJA ["TJA1050"]
-        TXD
-        RXD
+        direction TB
+        TXD["TXD"]
+        RXD["RXD"]
         CANH["CANH"]
         CANL["CANL"]
     end
 
-    CANH -->|"OBD-II пин 6"| BUS(("🚗\nCAN"))
-    CANL -->|"OBD-II пин 14"| BUS
+    subgraph CAN ["CAN-шина"]
+        direction TB
+        P6["OBD пин 6"]
+        P14["OBD пин 14"]
+    end
+
+    TX -->|"3.3В прямое"| TXD
+    RXD -->|"1kΩ+2kΩ → 3.3В"| RX
+    CANH --> P6
+    CANL --> P14
 ```
 
 > ⚠️ **RX — обязательно через делитель!** TJA1050 выдаёт 5В, ESP32 выдерживает 3.3В.
