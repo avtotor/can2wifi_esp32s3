@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(cmd.exe /c \"winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements\" 2>&1)",
-      "Bash(winget install:*)",
-      "Bash(export:*)"
-    ]
-  }
-}

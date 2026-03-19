@@ -1,15 +1,15 @@
 idf_component_register(
     SRCS
-        "main.cpp"
+        "main.c"
         "config_idf.c"
-        "esp32_can_idf.cpp"
-        "uart_serial.cpp"
-        "logger_idf.cpp"
-        "sys_io_idf.cpp"
-        "can_manager.cpp"
-        "gvret_comm.cpp"
-        "wifi_manager_idf.cpp"
-        "serial_console_idf.cpp"
+        "esp32_can_idf.c"
+        "uart_serial.c"
+        "logger_idf.c"
+        "sys_io_idf.c"
+        "can_manager.c"
+        "gvret_comm.c"
+        "wifi_manager_idf.c"
+        "serial_console_idf.c"
     INCLUDE_DIRS "."
 )
 

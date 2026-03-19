@@ -1,19 +1,19 @@
-# Build output
+# ESP-IDF build output
 build/
 managed_components/
+dependencies.lock
 
-# ESP-IDF generated config (sdkconfig.defaults is the source of truth)
+# ESP-IDF auto-generated config (sdkconfig.defaults is the source of truth)
 sdkconfig
 sdkconfig.old
 
-# Eclipse IDE
-.project
-.cproject
-.settings/
+# Python
+__pycache__/
+*.pyc
+*.pyo
 
-# Windows
-desktop.ini
-Thumbs.db
+# VSCode
+.vscode/
 
-# OS
-.DS_Store
+# Logs
+*.log
