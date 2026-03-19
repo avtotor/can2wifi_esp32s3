@@ -29,13 +29,13 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    subgraph ESP ["ESP32-S3"]
+    subgraph ESP ["🔵 ESP32-S3 N16R8"]
         direction TB
         TX["GPIO21 TX"]
         RX["GPIO20 RX"]
     end
 
-    subgraph TJA ["TJA1050"]
+    subgraph TJA ["🟡 TJA1050"]
         direction TB
         TXD["TXD"]
         RXD["RXD"]
@@ -43,10 +43,10 @@ flowchart LR
         CANL["CANL"]
     end
 
-    subgraph CAN ["CAN-шина"]
+    subgraph CAN ["🚗 CAN"]
         direction TB
-        P6["OBD пин 6"]
-        P14["OBD пин 14"]
+        P6["пин 6"]
+        P14["пин 14"]
     end
 
     TX -->|"3.3В прямое"| TXD
