@@ -49,11 +49,8 @@ flowchart LR
         P14["OBD пин 14"]
     end
 
-    ESP ~~~ TJA ~~~ CAN
-    TX -->|"3.3В прямое"| TXD
-    RXD -->|"1kΩ+2kΩ → 3.3В"| RX
-    CANH --> P6
-    CANL --> P14
+    ESP ~~~ TJA
+    TJA ~~~ CAN
 ```
 
 > ⚠️ **RX — обязательно через делитель!** TJA1050 выдаёт 5В, ESP32 выдерживает 3.3В.
