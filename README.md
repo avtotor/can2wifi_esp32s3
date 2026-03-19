@@ -48,10 +48,10 @@ block-beta
     P14["OBD пин 14"]
   end
 
-  TX --> TXD
-  RXD --> RX
-  CANH --> P6
-  CANL --> P14
+  TX o--o TXD
+  RXD o--o RX
+  CANH o--o P6
+  CANL o--o P14
 ```
 
 > ⚠️ **RX — обязательно через делитель!** TJA1050 выдаёт 5В, ESP32 выдерживает 3.3В.
