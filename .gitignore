@@ -1,0 +1,20 @@
+# ESP-IDF build output
+build/
+managed_components/
+dependencies.lock
+firmware/
+
+# ESP-IDF auto-generated config (sdkconfig.defaults is the source of truth)
+sdkconfig
+sdkconfig.old
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
